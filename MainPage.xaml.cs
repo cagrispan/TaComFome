@@ -16,6 +16,7 @@ using Windows.Media.Capture;
 using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.Storage.Streams;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Imaging;
@@ -31,25 +32,38 @@ namespace TaComFome
     public sealed partial class MainPage : Page
     {
         private string amazonPath;
-        private StorageFile photo;
-        private FBMediaStream fbStream;
 
         public MainPage()
         {
             this.InitializeComponent();
+
+            SystemNavigationManager.GetForCurrentView().BackRequested += test;
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
 
             base.OnNavigatedTo(e);
-
-            //StorageFile result = e.Parameter as StorageFile;
-            //photo = result;
-            //trataFoto(photo);
             await captureAsync();
+
         }
 
+        private void test(object sender,
+    Windows.UI.Core.BackRequestedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            if (rootFrame == null)
+                return;
+
+            // Navigate back if possible, and if the event has not 
+            // already been handled .
+            if (rootFrame.CanGoBack && e.Handled == false)
+            {
+                e.Handled = true;
+                rootFrame.GoBack();
+            }
+        }
+        
         private async Task amazon(string path)
         {
             AWSConfigs.AWSRegion = "us-east-1";
@@ -109,6 +123,22 @@ namespace TaComFome
             SoftwareBitmapSource bitmapSource = new SoftwareBitmapSource();
             await bitmapSource.SetBitmapAsync(softwareBitmapBGR8);
             photo_cap.Source = bitmapSource;
+        }
+
+            private void App_BackRequested(object sender,
+    Windows.UI.Core.BackRequestedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            if (rootFrame == null)
+                return;
+
+            // Navigate back if possible, and if the event has not 
+            // already been handled .
+            if (rootFrame.CanGoBack && e.Handled == false)
+            {
+                e.Handled = true;
+                rootFrame.GoBack();
+            }
         }
 
         private async void photo_btn_Click(object sender, RoutedEventArgs e)

@@ -121,6 +121,7 @@
   <ItemGroup>
     <None Include="Package.StoreAssociation.xml" />
     <Content Include="Assets\BadgeLogo.scale-400.png" />
+    <Content Include="Assets\btEntrarFacebook.png" />
     <Content Include="Assets\camera-icon.png" />
     <Content Include="Assets\iconPng.png" />
     <Content Include="Assets\iconPng2.png" />

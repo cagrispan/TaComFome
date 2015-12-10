@@ -382,6 +382,9 @@
       <PackagePath>Assets\BadgeLogo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Carlos\documents\visual studio 2015\Projects\TaComFome\TaComFome\Assets\btEntrarFacebook.png">
+      <PackagePath>Assets\btEntrarFacebook.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Carlos\documents\visual studio 2015\Projects\TaComFome\TaComFome\Assets\camera-icon.png">
       <PackagePath>Assets\camera-icon.png</PackagePath>
     </AppxPackagedFile>

@@ -29,15 +29,15 @@
       <RootProperty Name="VerticalAlignment" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
-      <RootProperty Name="Content" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Margin" />
       <RootProperty Name="Height" />
+      <RootProperty Name="Content" />
+      <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Background" />
       <RootProperty Name="Foreground" />
       <RootProperty Name="FontWeight" />
       <RootProperty Name="FontSize" />
+      <RootProperty Name="VerticalAlignment" />
       <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="TaComFome.Login" />
