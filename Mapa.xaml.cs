@@ -36,18 +36,37 @@ namespace TaComFome
             this.InitializeComponent();
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
+            
+            var accessStatus = await Geolocator.RequestAccessAsync();
 
-            // Specify a known location.
-            BasicGeoposition cityPosition = new BasicGeoposition() { Latitude = 47.604, Longitude = -122.329 };
-            Geopoint cityCenter = new Geopoint(cityPosition);
+            switch (accessStatus)
+            {
+                case GeolocationAccessStatus.Allowed:
+                    Geolocator geolocator = new Geolocator ();
 
-            // Set the map location.
-            MapControl1.Center = cityCenter;
-            MapControl1.ZoomLevel = 12;
-            MapControl1.LandmarksVisible = true;
+                    // Carry out the operation.
+                    Geoposition pos = await geolocator.GetGeopositionAsync();
+
+                    BasicGeoposition cityPosition = new BasicGeoposition() { Latitude = pos.Coordinate.Latitude, Longitude = pos.Coordinate.Longitude };
+                    Geopoint cityCenter = new Geopoint(cityPosition);
+
+                    // Set the map location.
+                    MapControl1.Center = cityCenter;
+                    MapControl1.ZoomLevel = 12;
+                    MapControl1.LandmarksVisible = true;
+
+                    break;
+
+                case GeolocationAccessStatus.Denied:
+                    break;
+
+                case GeolocationAccessStatus.Unspecified:
+                    break;
+            }
+
         }
 
         private void Camera_ClickAsync(object sender, RoutedEventArgs e)
