@@ -1,0 +1,2 @@
+C:\Users\Carlos\Desktop\winsdkfb-master\winsdkfb-master\FBWinSDK\FBSDK-UWP\FBSDK-UWP\FBSDK-UWP.vcxproj;arm
+C:\Users\Carlos\documents\visual studio 2015\Projects\TaComFome\TaComFome\TaComFome.csproj;arm

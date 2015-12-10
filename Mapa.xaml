@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="TaComFome.Mapa"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TaComFome"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:Maps="using:Windows.UI.Xaml.Controls.Maps"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="488"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <StackPanel VerticalAlignment="Center" Background="Red" Orientation="Horizontal">
+            <Image Source="/Assets/iconPng.png" Width="30" VerticalAlignment="Center"/>
+            <TextBlock Text="Tá com Fome?" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="10"></TextBlock>
+        </StackPanel>
+            <Maps:MapControl
+       x:Name="MapControl1"            
+       ZoomInteractionMode="GestureAndControl"
+       TiltInteractionMode="GestureAndControl"
+       MapServiceToken="WrpJrCoNnRr8bZCqx4kR~TUEa86MY0Qc53hGoZsogSw~Apvg77GD--k5n9J4DljxQr1iGoRVabWbJjwouRZI7vsaLvP-EfU8Rg9CB01GMYRq" Grid.Row="1"/>
+        <Button x:Name="Camera" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="40" Click="Camera_ClickAsync" Background="Red">
+            <Image Source="Assets/camera-icon.png" />
+        </Button>
+    </Grid>
+</Page>
