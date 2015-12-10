@@ -15,8 +15,8 @@
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
         <StackPanel VerticalAlignment="Center" Background="Red" Orientation="Horizontal">
-            <Image Source="/Assets/iconPng.png" Width="30" VerticalAlignment="Center"/>
-            <TextBlock Text="Tá com Fome?" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="10"></TextBlock>
+            <Image Source="/Assets/iconPng2.png" Height="30" VerticalAlignment="Center" Margin="10,0"/>
+            <TextBlock Text="Restaurantes" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="0,10"></TextBlock>
         </StackPanel>
             <Maps:MapControl x:ConnectionId='1'
        x:Name="MapControl1"            

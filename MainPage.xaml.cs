@@ -1,12 +1,20 @@
-﻿using Facebook;
+﻿using Amazon;
+using Amazon.CognitoIdentity;
+using Amazon.S3;
+using Amazon.S3.Transfer;
+using Facebook;
 using Facebook.Graph;
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Graphics.Imaging;
 using Windows.Media.Capture;
 using Windows.Storage;
+using Windows.Storage.Pickers;
 using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -22,6 +30,7 @@ namespace TaComFome
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private string amazonPath;
         private StorageFile photo;
         private FBMediaStream fbStream;
 
@@ -41,6 +50,27 @@ namespace TaComFome
             await captureAsync();
         }
 
+        private async Task amazon(string path)
+        {
+            AWSConfigs.AWSRegion = "us-east-1";
+
+            CognitoAWSCredentials credentials = new CognitoAWSCredentials(
+    "us-east-1:594898f7-90b3-41f4-a9c8-3d62fbe8bb06", // Identity Pool ID
+    RegionEndpoint.USEast1 // Region
+);
+
+            var s3Client = new AmazonS3Client(credentials, RegionEndpoint.USEast1);
+            var transferUtility = new TransferUtility(s3Client);
+
+            /*var loggingConfig = AWSConfigs.LoggingConfig;
+            loggingConfig.LogMetrics = true;
+            loggingConfig.LogResponses = ResponseLoggingOption.Always;
+            loggingConfig.LogMetricsFormat = LogMetricsFormatOption.JSON;
+            loggingConfig.LogTo = LoggingOptions.SystemDiagnostics;*/
+
+            await transferUtility.UploadAsync(path, "tacomfome");
+        }
+
         private async Task captureAsync()
         {
             CameraCaptureUI captureUI = new CameraCaptureUI();
@@ -55,23 +85,18 @@ namespace TaComFome
                 return;
             }
 
-            IRandomAccessStream stream = await photo.OpenAsync(FileAccessMode.Read);
-            BitmapDecoder decoder = await BitmapDecoder.CreateAsync(stream);
-            SoftwareBitmap softwareBitmap = await decoder.GetSoftwareBitmapAsync();
+            await trataFoto(photo);
+            
+            string path = photo.Path;
+            string[] brokenPath = path.Split('\\');
+            
+            amazonPath = "https://s3.amazonaws.com/tacomfome/"+brokenPath.Last();
+            amazonPath.Replace(' ', '+');
 
-            SoftwareBitmap softwareBitmapBGR8 = SoftwareBitmap.Convert(softwareBitmap,
-        BitmapPixelFormat.Bgra8,
-        BitmapAlphaMode.Premultiplied);
-
-            SoftwareBitmapSource bitmapSource = new SoftwareBitmapSource();
-            await bitmapSource.SetBitmapAsync(softwareBitmapBGR8);
-            photo_cap.Source = bitmapSource;
-
-            IRandomAccessStreamWithContentType stream2 = await photo.OpenReadAsync();
-            fbStream = new FBMediaStream(photo.Name, stream2);
+            await amazon(path);
         }
 
-        private async void trataFoto(StorageFile photo)
+        private async Task trataFoto(StorageFile photo)
         {
             IRandomAccessStream stream = await photo.OpenAsync(FileAccessMode.Read);
             BitmapDecoder decoder = await BitmapDecoder.CreateAsync(stream);
@@ -88,43 +113,16 @@ namespace TaComFome
 
         private async void photo_btn_Click(object sender, RoutedEventArgs e)
         {
-            /*IRandomAccessStreamWithContentType stream = await photo.OpenReadAsync();
-            FBMediaStream fbStream = new FBMediaStream(photo.Name, stream);
-
-            FBSession sess = FBSession.ActiveSession;
-            if (sess.LoggedIn)
-            {
-                FBUser user = sess.User;
-
-                PropertySet parameters = new PropertySet();
-                parameters.Add("source", fbStream);
-
-                string path = "/" + user.Id + "/photos";
-
-                FBSingleValue sval = new FBSingleValue(path, parameters,
-                               new FBJsonClassFactory(FBPhoto.FromJson));
-
-                FBResult result = await sval.PostAsync();
-
-                if (result.Succeeded)
-                {
-                    // Uploading succeeded
-                }
-                else
-                {
-                    // Uploading failed
-                }
-            }*/
-
-            // Get active session
+            
             FBSession sess = FBSession.ActiveSession;
 
             if (sess.LoggedIn)
             {
                 // Set parameters
                 PropertySet parameters = new PropertySet();
-                parameters.Add("source", fbStream);
-                parameters.Add("description", "BLABLABLA");
+                parameters.Add("title", "Ta com fome?");
+                parameters.Add("picture", amazonPath);
+                parameters.Add("description", "O restaurante BLABLA acaba de doar R$ 0,25 para intituições de combate a fome por este compartilhamento. Compartilhe você também e ajude quem precisa.");
 
                 // Display feed dialog
                 FBResult fbresult = await sess.ShowFeedDialogAsync(parameters);

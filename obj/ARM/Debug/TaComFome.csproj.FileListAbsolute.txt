@@ -207,3 +207,16 @@ C:\Users\Carlos\Documents\Visual Studio 2015\Projects\TaComFome\TaComFome\obj\AR
 C:\Users\Carlos\documents\visual studio 2015\Projects\TaComFome\TaComFome\bin\ARM\Debug\Facebook.winmd
 C:\Users\Carlos\documents\visual studio 2015\Projects\TaComFome\TaComFome\bin\ARM\Debug\Facebook.pdb
 C:\Users\Carlos\documents\visual studio 2015\Projects\TaComFome\TaComFome\bin\ARM\Debug\Facebook.pri
+C:\Users\Carlos\documents\visual studio 2015\Projects\TaComFome\TaComFome\bin\ARM\Debug\AWSSDK.CognitoIdentity.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\TaComFome\TaComFome\bin\ARM\Debug\AWSSDK.Core.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\TaComFome\TaComFome\bin\ARM\Debug\AWSSDK.S3.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\TaComFome\TaComFome\bin\ARM\Debug\AWSSDK.SecurityToken.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\TaComFome\TaComFome\bin\ARM\Debug\System.Net.Http.Extensions.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\TaComFome\TaComFome\bin\ARM\Debug\System.Net.Http.Primitives.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\TaComFome\TaComFome\bin\ARM\Debug\PCLCrypto.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\TaComFome\TaComFome\bin\ARM\Debug\PCLStorage.Abstractions.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\TaComFome\TaComFome\bin\ARM\Debug\PCLStorage.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\TaComFome\TaComFome\bin\ARM\Debug\Validation.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\TaComFome\TaComFome\obj\ARM\Debug\Validation\en-US\Validation.Strings.resw
+C:\Users\Carlos\documents\visual studio 2015\Projects\TaComFome\TaComFome\obj\ARM\Debug\TaComFome.csproj.GenerateResource.Cache
+C:\Users\Carlos\documents\visual studio 2015\Projects\TaComFome\TaComFome\obj\ARM\Debug\PCLCrypto.pri.xml
