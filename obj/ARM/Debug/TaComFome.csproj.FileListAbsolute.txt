@@ -220,3 +220,8 @@ C:\Users\Carlos\documents\visual studio 2015\Projects\TaComFome\TaComFome\bin\AR
 C:\Users\Carlos\documents\visual studio 2015\Projects\TaComFome\TaComFome\obj\ARM\Debug\Validation\en-US\Validation.Strings.resw
 C:\Users\Carlos\documents\visual studio 2015\Projects\TaComFome\TaComFome\obj\ARM\Debug\TaComFome.csproj.GenerateResource.Cache
 C:\Users\Carlos\documents\visual studio 2015\Projects\TaComFome\TaComFome\obj\ARM\Debug\PCLCrypto.pri.xml
+C:\Users\Carlos\documents\visual studio 2015\Projects\TaComFome\TaComFome\bin\ARM\Debug\Sobre.xbf
+C:\Users\Carlos\documents\visual studio 2015\Projects\TaComFome\TaComFome\obj\ARM\Debug\Sobre.g.i.cs
+C:\Users\Carlos\documents\visual studio 2015\Projects\TaComFome\TaComFome\obj\ARM\Debug\Sobre.g.cs
+C:\Users\Carlos\documents\visual studio 2015\Projects\TaComFome\TaComFome\obj\ARM\Debug\Sobre.xaml
+C:\Users\Carlos\documents\visual studio 2015\Projects\TaComFome\TaComFome\obj\ARM\Debug\Sobre.xbf

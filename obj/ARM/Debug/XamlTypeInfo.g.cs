@@ -156,7 +156,7 @@ namespace TaComFome.TaComFome_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[9];
+            _typeNameTable = new string[13];
             _typeNameTable[0] = "TaComFome.Login";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
@@ -165,9 +165,13 @@ namespace TaComFome.TaComFome_XamlTypeInfo
             _typeNameTable[5] = "System.ValueType";
             _typeNameTable[6] = "Object";
             _typeNameTable[7] = "TaComFome.MainPage";
-            _typeNameTable[8] = "TaComFome.Mapa";
+            _typeNameTable[8] = "Facebook.ProfilePictureControl";
+            _typeNameTable[9] = "Facebook.CroppingType";
+            _typeNameTable[10] = "System.Enum";
+            _typeNameTable[11] = "TaComFome.Mapa";
+            _typeNameTable[12] = "TaComFome.Sobre";
 
-            _typeTable = new global::System.Type[9];
+            _typeTable = new global::System.Type[13];
             _typeTable[0] = typeof(global::TaComFome.Login);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
@@ -176,7 +180,11 @@ namespace TaComFome.TaComFome_XamlTypeInfo
             _typeTable[5] = typeof(global::System.ValueType);
             _typeTable[6] = typeof(global::System.Object);
             _typeTable[7] = typeof(global::TaComFome.MainPage);
-            _typeTable[8] = typeof(global::TaComFome.Mapa);
+            _typeTable[8] = typeof(global::Facebook.ProfilePictureControl);
+            _typeTable[9] = typeof(global::Facebook.CroppingType);
+            _typeTable[10] = typeof(global::System.Enum);
+            _typeTable[11] = typeof(global::TaComFome.Mapa);
+            _typeTable[12] = typeof(global::TaComFome.Sobre);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -213,7 +221,9 @@ namespace TaComFome.TaComFome_XamlTypeInfo
 
         private object Activate_0_Login() { return new global::TaComFome.Login(); }
         private object Activate_7_MainPage() { return new global::TaComFome.MainPage(); }
-        private object Activate_8_Mapa() { return new global::TaComFome.Mapa(); }
+        private object Activate_8_ProfilePictureControl() { return new global::Facebook.ProfilePictureControl(); }
+        private object Activate_11_Mapa() { return new global::TaComFome.Mapa(); }
+        private object Activate_12_Sobre() { return new global::TaComFome.Sobre(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -268,9 +278,36 @@ namespace TaComFome.TaComFome_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 8:   //  TaComFome.Mapa
+            case 8:   //  Facebook.ProfilePictureControl
+                userType = new global::TaComFome.TaComFome_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_8_ProfilePictureControl;
+                userType.AddMemberName("CropMode");
+                userType.AddMemberName("UserId");
+                xamlType = userType;
+                break;
+
+            case 9:   //  Facebook.CroppingType
+                userType = new global::TaComFome.TaComFome_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
+                userType.AddEnumValue("Square", global::Facebook.CroppingType.Square);
+                userType.AddEnumValue("Original", global::Facebook.CroppingType.Original);
+                xamlType = userType;
+                break;
+
+            case 10:   //  System.Enum
+                userType = new global::TaComFome.TaComFome_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
+                xamlType = userType;
+                break;
+
+            case 11:   //  TaComFome.Mapa
                 userType = new global::TaComFome.TaComFome_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_8_Mapa;
+                userType.Activator = Activate_11_Mapa;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 12:   //  TaComFome.Sobre
+                userType = new global::TaComFome.TaComFome_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_12_Sobre;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -343,6 +380,26 @@ namespace TaComFome.TaComFome_XamlTypeInfo
             var that = (global::TaComFome.Login)instance;
             return that.TokenExpiry;
         }
+        private object get_2_ProfilePictureControl_CropMode(object instance)
+        {
+            var that = (global::Facebook.ProfilePictureControl)instance;
+            return that.CropMode;
+        }
+        private void set_2_ProfilePictureControl_CropMode(object instance, object Value)
+        {
+            var that = (global::Facebook.ProfilePictureControl)instance;
+            that.CropMode = (global::Facebook.CroppingType)Value;
+        }
+        private object get_3_ProfilePictureControl_UserId(object instance)
+        {
+            var that = (global::Facebook.ProfilePictureControl)instance;
+            return that.UserId;
+        }
+        private void set_3_ProfilePictureControl_UserId(object instance, object Value)
+        {
+            var that = (global::Facebook.ProfilePictureControl)instance;
+            that.UserId = (global::System.String)Value;
+        }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
@@ -362,6 +419,18 @@ namespace TaComFome.TaComFome_XamlTypeInfo
                 xamlMember = new global::TaComFome.TaComFome_XamlTypeInfo.XamlMember(this, "TokenExpiry", "System.DateTime");
                 xamlMember.Getter = get_1_Login_TokenExpiry;
                 xamlMember.SetIsReadOnly();
+                break;
+            case "Facebook.ProfilePictureControl.CropMode":
+                userType = (global::TaComFome.TaComFome_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Facebook.ProfilePictureControl");
+                xamlMember = new global::TaComFome.TaComFome_XamlTypeInfo.XamlMember(this, "CropMode", "Facebook.CroppingType");
+                xamlMember.Getter = get_2_ProfilePictureControl_CropMode;
+                xamlMember.Setter = set_2_ProfilePictureControl_CropMode;
+                break;
+            case "Facebook.ProfilePictureControl.UserId":
+                userType = (global::TaComFome.TaComFome_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Facebook.ProfilePictureControl");
+                xamlMember = new global::TaComFome.TaComFome_XamlTypeInfo.XamlMember(this, "UserId", "String");
+                xamlMember.Getter = get_3_ProfilePictureControl_UserId;
+                xamlMember.Setter = set_3_ProfilePictureControl_UserId;
                 break;
             }
             return xamlMember;

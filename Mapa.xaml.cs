@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Facebook;
+using Facebook.Graph;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -29,11 +31,30 @@ namespace TaComFome
     /// </summary>
     public sealed partial class Mapa : Page
     {
-        private StorageFile photo;
 
         public Mapa()
         {
             this.InitializeComponent();
+            takeAndCareUserInformation();
+        }
+
+        private void takeAndCareUserInformation()
+        {
+            FBSession sess = FBSession.ActiveSession;
+
+            if (sess.LoggedIn)
+            {
+                FBUser user = sess.User;
+                string userId = user.Id;
+                string username = user.Name;
+                string gender = user.Gender;
+                string locale = user.Locale;
+
+                ProfilePic.UserId = userId;
+                Nome.Text = username;
+                Localizacao.Text = locale;
+                Gender.Text = gender;
+            }
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
@@ -88,6 +109,16 @@ namespace TaComFome
                 // User cancelled photo capture
                 return;
             }
+        }
+
+        private void HamburgerButton_Click(object sender, RoutedEventArgs e)
+        {
+            splitView.IsPaneOpen = !splitView.IsPaneOpen;
+        }
+
+        private void sobre_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Sobre));
         }
     }
 }

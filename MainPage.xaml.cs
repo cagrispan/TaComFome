@@ -37,7 +37,7 @@ namespace TaComFome
         {
             this.InitializeComponent();
 
-            SystemNavigationManager.GetForCurrentView().BackRequested += test;
+            SystemNavigationManager.GetForCurrentView().BackRequested += Voltar;
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
@@ -48,7 +48,7 @@ namespace TaComFome
 
         }
 
-        private void test(object sender,
+        private void Voltar(object sender,
     Windows.UI.Core.BackRequestedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;

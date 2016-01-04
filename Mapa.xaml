@@ -5,26 +5,64 @@
     xmlns:local="using:TaComFome"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:Maps="using:Windows.UI.Xaml.Controls.Maps"
+    xmlns:facebook="using:Facebook"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
-            <RowDefinition Height="488"/>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="528"/>
         </Grid.RowDefinitions>
-        <StackPanel VerticalAlignment="Center" Background="Red" Orientation="Horizontal">
+        <StackPanel Background="Red" Height="40" Orientation="Horizontal" Grid.Row="0">
             <Image Source="/Assets/iconPng2.png" Height="30" VerticalAlignment="Center" Margin="10,0"/>
             <TextBlock Text="Restaurantes" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="0,10"></TextBlock>
+            <Button x:Name="HamburgerButton" Margin="150,0" FontFamily="Segoe MDL2 Assets" Content="&#xE700;"
+                    Width="50" Height="50" Background="Transparent" Click="HamburgerButton_Click"/>
         </StackPanel>
-            <Maps:MapControl
+        <SplitView x:Name="splitView" DisplayMode="CompactOverlay"  IsPaneOpen="False" 
+              CompactPaneLength="0" OpenPaneLength="330" Margin="0,0,0,0" PanePlacement="Right" Grid.Row="1">
+            <SplitView.Content>
+                <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="488"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                <Maps:MapControl
        x:Name="MapControl1"            
        ZoomInteractionMode="GestureAndControl"
        TiltInteractionMode="GestureAndControl"
-       MapServiceToken="WrpJrCoNnRr8bZCqx4kR~TUEa86MY0Qc53hGoZsogSw~Apvg77GD--k5n9J4DljxQr1iGoRVabWbJjwouRZI7vsaLvP-EfU8Rg9CB01GMYRq" Grid.Row="1"/>
-        <Button x:Name="Camera" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="40" Click="Camera_ClickAsync" Background="Red">
-            <Image Source="Assets/camera-icon.png" />
-        </Button>
+       MapServiceToken="WrpJrCoNnRr8bZCqx4kR~TUEa86MY0Qc53hGoZsogSw~Apvg77GD--k5n9J4DljxQr1iGoRVabWbJjwouRZI7vsaLvP-EfU8Rg9CB01GMYRq" Grid.Row="0"/>
+                <Button x:Name="Camera" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="40" Click="Camera_ClickAsync" Background="Red">
+                    <Image Source="Assets/camera-icon.png" />
+                </Button>
+                </Grid>
+            </SplitView.Content>
+            <SplitView.Pane>
+                <StackPanel Background="LightGray" Margin="0,0,0,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <facebook:ProfilePictureControl x:Name="ProfilePic" Width="120" Height="120" Grid.Row="0" Grid.Column="0" Grid.RowSpan="4" Margin="10" BorderBrush="Gray"/>
+                        <TextBlock x:Name="Nome" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" Foreground="#9B9292" />
+                        <TextBlock x:Name="Gender" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap" Foreground="#9B9292"/>
+                        <TextBlock x:Name="Localizacao" Grid.Row="3" Grid.Column="1" TextWrapping="Wrap" Foreground="#9B9292"/>
+                    </Grid>
+                    <Button x:Name="sobre" Content="Sobre o Aplicativo" Foreground="#292727" Background="LightGray" BorderBrush="LightGray"
+                   Width="330" Height="50" Margin="0,30" Click="sobre_Click"/>
+                    <TextBlock x:Name="Creditos" Text="Desenvolvido por:" TextWrapping="Wrap" Foreground="#9B9292" Margin="10, 190, 0, 0"/>
+                    <TextBlock x:Name="Bruno" Text="Bruno Henrique Braga" TextWrapping="Wrap" Foreground="#9B9292" Margin="10, 5, 0, 0"/>
+                    <TextBlock x:Name="Carlos" Text="Carlos Augusto Grispan" TextWrapping="Wrap" Foreground="#9B9292" Margin="10, 5, 0, 0"/>
+                </StackPanel>
+            </SplitView.Pane>
+        </SplitView>
     </Grid>
 </Page>

@@ -394,16 +394,24 @@
     <AppxPackagedFile Include="C:\Users\Carlos\documents\visual studio 2015\Projects\TaComFome\TaComFome\Assets\iconPng2.png">
       <PackagePath>Assets\iconPng2.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Carlos\documents\visual studio 2015\Projects\TaComFome\TaComFome\Assets\Square150x150Logo.scale-200.png">
+      <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Carlos\documents\visual studio 2015\Projects\TaComFome\TaComFome\Assets\Square310x310Logo.scale-100.png">
       <PackagePath>Assets\Square310x310Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Carlos\documents\visual studio 2015\Projects\TaComFome\TaComFome\Assets\Square44x44Logo.targetsize-48.png">
-      <PackagePath>Assets\Square44x44Logo.targetsize-48.png</PackagePath>
+    <AppxPackagedFile Include="C:\Users\Carlos\documents\visual studio 2015\Projects\TaComFome\TaComFome\Assets\Square44x44Logo.scale-400.png">
+      <PackagePath>Assets\Square44x44Logo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Carlos\documents\visual studio 2015\Projects\TaComFome\TaComFome\Assets\Square71x71Logo.scale-400.png">
       <PackagePath>Assets\Square71x71Logo.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Carlos\documents\visual studio 2015\Projects\TaComFome\TaComFome\Assets\StoreLogo.scale-400.png">
+      <PackagePath>Assets\StoreLogo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Carlos\documents\visual studio 2015\Projects\TaComFome\TaComFome\Assets\LockScreenLogo.scale-200.png">
@@ -411,18 +419,6 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Carlos\documents\visual studio 2015\Projects\TaComFome\TaComFome\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
-      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Carlos\documents\visual studio 2015\Projects\TaComFome\TaComFome\Assets\Square150x150Logo.scale-200.png">
-      <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
-      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Carlos\documents\visual studio 2015\Projects\TaComFome\TaComFome\Assets\StoreLogo.png">
-      <PackagePath>Assets\StoreLogo.png</PackagePath>
-      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Carlos\documents\visual studio 2015\Projects\TaComFome\TaComFome\Assets\Wide310x150Logo.scale-200.png">
-      <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Carlos\Desktop\winsdkfb-master\winsdkfb-master\FBWinSDK\FBWinSDK\FBWinSDK.Shared\Images\fb_blank_profile_portrait.png">
